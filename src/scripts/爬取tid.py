@@ -70,9 +70,10 @@ def upload_to_github():
     """
     将爬取的帖子数据上传到GitHub仓库
     """
-    # GitHub配置
-    GITHUB_TOKEN = "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"
-    REPO_URL = f"https://{GITHUB_TOKEN}@github.com/BInBilibili/diaotutieba.git"
+    # 注意：不要在代码中硬编码GitHub令牌
+    # 令牌已从代码中移除，避免被GitHub安全扫描检测到
+    
+    REPO_URL = "https://github.com/BInBilibili/diaotutieba.git"
     REPO_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # 项目根目录
     
     print("\n===== 开始上传到GitHub仓库 =====")
@@ -221,16 +222,14 @@ def upload_to_github():
             if result and result.stderr:
                 print(f"  错误: {result.stderr}")
             
-            # 如果推送失败，尝试强制推送（仅用于新仓库）
-            if is_new_repo:
-                print("\n尝试强制推送...")
-                result = run_git_command(["push", "-f", "-u", "origin", current_branch])
-                if result and result.returncode == 0:
-                    print("✓ 强制推送成功！")
-                else:
-                    print("✗ 强制推送也失败")
-                    if result and result.stderr:
-                        print(f"  错误: {result.stderr}")
+            # 显示手动推送说明
+            print("\n=== 手动推送说明 ===")
+            print("由于安全原因，GitHub阻止了包含令牌的推送")
+            print("请按照以下步骤手动推送：")
+            print("1. 打开命令提示符或Git Bash")
+            print(f"2. 切换到目录: {REPO_PATH}")
+            print("3. 运行命令: git push -u origin main")
+            print("4. 按照GitHub提示输入用户名和密码（密码使用个人访问令牌）")
         
         print("\n===== 上传到GitHub仓库完成 =====")
         
@@ -247,8 +246,8 @@ async def main():
         threads = await client.get_threads(forum_name)
         
         # 配置爬取范围
-        # 爬取前2个帖子，除了置顶
-        thread_range = [1, 3]  # 爬取第2-3个帖子
+        # 爬取前1个帖子，除了置顶
+        thread_range = [1, 2]  # 爬取第2个帖子（只爬取1个）
         
         # 准备保存的帖子数据
         tids = []
