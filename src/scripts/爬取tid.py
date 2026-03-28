@@ -84,7 +84,9 @@ def upload_to_github():
         print(f"已切换到目录: {os.getcwd()}")
         
         # 检查是否为Git仓库
+        is_new_repo = False
         if not os.path.exists(".git"):
+            is_new_repo = True
             print("初始化Git仓库...")
             result = run_git_command(["init"])
             if result and result.returncode == 0:
@@ -147,8 +149,43 @@ def upload_to_github():
             if result and result.stderr:
                 print(f"  错误: {result.stderr}")
         
+        # 检查当前分支
+        result = run_git_command(["branch"])
+        if result and result.returncode == 0:
+            current_branch = result.stdout.strip()
+            print(f"\n当前分支: {current_branch if current_branch else '无分支'}")
+            
+            # 如果没有分支，创建main分支
+            if not current_branch:
+                print("创建main分支...")
+                result = run_git_command(["checkout", "-b", "main"])
+                if result and result.returncode == 0:
+                    print("✓ main分支创建成功")
+                else:
+                    print("✗ main分支创建失败")
+                    if result and result.stderr:
+                        print(f"  错误: {result.stderr}")
+        
         # 推送到远程仓库
         print("\n推送到远程仓库...")
+        
+        # 先尝试获取远程分支信息
+        result = run_git_command(["fetch", "origin"])
+        
+        # 检查远程是否有main分支
+        result = run_git_command(["ls-remote", "--heads", "origin", "main"])
+        has_remote_main = result and result.returncode == 0 and result.stdout.strip()
+        
+        if has_remote_main:
+            # 远程有main分支，先合并
+            print("远程存在main分支，尝试合并...")
+            result = run_git_command(["pull", "origin", "main", "--allow-unrelated-histories"])
+            if result and result.returncode == 0:
+                print("✓ 合并成功")
+            else:
+                print("⚠ 合并可能有冲突，继续推送...")
+        
+        # 推送
         result = run_git_command(["push", "-u", "origin", "main"])
         if result and result.returncode == 0:
             print("✓ 推送成功！")
@@ -160,6 +197,17 @@ def upload_to_github():
             print("✗ 推送失败")
             if result and result.stderr:
                 print(f"  错误: {result.stderr}")
+            
+            # 如果推送失败，尝试强制推送（仅用于新仓库）
+            if is_new_repo:
+                print("\n尝试强制推送...")
+                result = run_git_command(["push", "-f", "-u", "origin", "main"])
+                if result and result.returncode == 0:
+                    print("✓ 强制推送成功！")
+                else:
+                    print("✗ 强制推送也失败")
+                    if result and result.stderr:
+                        print(f"  错误: {result.stderr}")
         
         print("\n===== 上传到GitHub仓库完成 =====")
         
