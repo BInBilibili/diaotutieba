@@ -124,6 +124,46 @@ def upload_to_github():
                 if line.strip():
                     print(f"  {line}")
         
+        # 检查当前分支
+        print("\n检查当前分支...")
+        result = run_git_command(["branch"])
+        current_branch = ""
+        if result and result.returncode == 0:
+            for line in result.stdout.strip().split('\n'):
+                if line.startswith('* '):
+                    current_branch = line[2:].strip()
+                    break
+            print(f"当前分支: {current_branch if current_branch else '无分支'}")
+        
+        # 处理分支
+        target_branch = "main"
+        if not current_branch:
+            # 没有分支，创建main分支
+            print(f"创建{target_branch}分支...")
+            result = run_git_command(["checkout", "-b", target_branch])
+            if result and result.returncode == 0:
+                print(f"✓ {target_branch}分支创建成功")
+                current_branch = target_branch
+            else:
+                print(f"✗ {target_branch}分支创建失败")
+                if result and result.stderr:
+                    print(f"  错误: {result.stderr}")
+        elif current_branch != target_branch:
+            # 分支不匹配，切换到main分支
+            print(f"切换到{target_branch}分支...")
+            # 先尝试创建main分支
+            result = run_git_command(["checkout", "-b", target_branch])
+            if result and result.returncode != 0:
+                # 如果已存在，直接切换
+                result = run_git_command(["checkout", target_branch])
+            if result and result.returncode == 0:
+                print(f"✓ 切换到{target_branch}分支成功")
+                current_branch = target_branch
+            else:
+                print(f"✗ 切换分支失败")
+                if result and result.stderr:
+                    print(f"  错误: {result.stderr}")
+        
         # 添加所有文件
         print("\n添加文件到暂存区...")
         result = run_git_command(["add", "."])
@@ -149,23 +189,6 @@ def upload_to_github():
             if result and result.stderr:
                 print(f"  错误: {result.stderr}")
         
-        # 检查当前分支
-        result = run_git_command(["branch"])
-        if result and result.returncode == 0:
-            current_branch = result.stdout.strip()
-            print(f"\n当前分支: {current_branch if current_branch else '无分支'}")
-            
-            # 如果没有分支，创建main分支
-            if not current_branch:
-                print("创建main分支...")
-                result = run_git_command(["checkout", "-b", "main"])
-                if result and result.returncode == 0:
-                    print("✓ main分支创建成功")
-                else:
-                    print("✗ main分支创建失败")
-                    if result and result.stderr:
-                        print(f"  错误: {result.stderr}")
-        
         # 推送到远程仓库
         print("\n推送到远程仓库...")
         
@@ -173,20 +196,20 @@ def upload_to_github():
         result = run_git_command(["fetch", "origin"])
         
         # 检查远程是否有main分支
-        result = run_git_command(["ls-remote", "--heads", "origin", "main"])
+        result = run_git_command(["ls-remote", "--heads", "origin", target_branch])
         has_remote_main = result and result.returncode == 0 and result.stdout.strip()
         
         if has_remote_main:
             # 远程有main分支，先合并
-            print("远程存在main分支，尝试合并...")
-            result = run_git_command(["pull", "origin", "main", "--allow-unrelated-histories"])
+            print(f"远程存在{target_branch}分支，尝试合并...")
+            result = run_git_command(["pull", "origin", target_branch, "--allow-unrelated-histories"])
             if result and result.returncode == 0:
                 print("✓ 合并成功")
             else:
                 print("⚠ 合并可能有冲突，继续推送...")
         
         # 推送
-        result = run_git_command(["push", "-u", "origin", "main"])
+        result = run_git_command(["push", "-u", "origin", current_branch])
         if result and result.returncode == 0:
             print("✓ 推送成功！")
             print("\n推送结果:")
@@ -201,7 +224,7 @@ def upload_to_github():
             # 如果推送失败，尝试强制推送（仅用于新仓库）
             if is_new_repo:
                 print("\n尝试强制推送...")
-                result = run_git_command(["push", "-f", "-u", "origin", "main"])
+                result = run_git_command(["push", "-f", "-u", "origin", current_branch])
                 if result and result.returncode == 0:
                     print("✓ 强制推送成功！")
                 else:
