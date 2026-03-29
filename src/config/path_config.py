@@ -30,7 +30,7 @@ class ScrapeDataPathBuilder:
     def get_instance_scrape(cls, forum_name: str, tid: int, title: str) -> "ScrapeDataPathBuilder":
         item_dir = path.join(
             path.join(os.getcwd(), cls.DATA_FOLDER_NAME),
-            f"[{forum_name}吧][{tid}]{sanitize_filename(title)}_{get_timestamp()}",
+            f"[{forum_name}吧][{tid}]{sanitize_filename(title)}",
         )
         os.makedirs(item_dir, exist_ok=True)
         return ScrapeDataPathBuilder(item_dir)
