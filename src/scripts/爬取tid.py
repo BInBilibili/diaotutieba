@@ -176,17 +176,68 @@ def upload_to_github(post_dirs):
                 f.write(readme_content)
             print("✓ 创建README.md文件")
         
-        # 确保帖子目录存在
-        posts_dir = os.path.join(REPO_PATH, "帖子")
-        if not os.path.exists(posts_dir):
-            os.makedirs(posts_dir, exist_ok=True)
-            print("✓ 创建帖子目录")
+        # 复制帖子到仓库根目录的scraped_data目录
+        print("\n复制帖子到仓库目录...")
+        import shutil
         
-        # 添加所有文件
+        # 确保仓库根目录有scraped_data目录
+        repo_scraped_dir = os.path.join(REPO_PATH, "scraped_data")
+        print(f"仓库scraped_data目录: {repo_scraped_dir}")
+        os.makedirs(repo_scraped_dir, exist_ok=True)
+        
+        # 检查源帖子目录
+        print(f"要复制的帖子目录数量: {len(post_dirs)}")
+        for post_dir in post_dirs:
+            print(f"  源目录: {post_dir}")
+            print(f"  是否存在: {os.path.exists(post_dir)}")
+        
+        # 复制帖子目录
+        for post_dir in post_dirs:
+            # 获取帖子目录名称
+            post_dir_name = os.path.basename(post_dir)
+            # 目标路径
+            target_path = os.path.join(repo_scraped_dir, post_dir_name)
+            
+            print(f"复制: {post_dir} -> {target_path}")
+            
+            # 如果目标存在，先删除
+            if os.path.exists(target_path):
+                print(f"  目标已存在，删除旧目录")
+                shutil.rmtree(target_path, ignore_errors=True)
+            
+            # 复制帖子目录
+            if os.path.exists(post_dir):
+                shutil.copytree(post_dir, target_path)
+                print(f"✓ 复制帖子成功: {post_dir_name}")
+            else:
+                print(f"✗ 源目录不存在: {post_dir}")
+        
+        # 验证复制结果
+        print(f"\n验证仓库scraped_data目录内容:")
+        if os.path.exists(repo_scraped_dir):
+            items = os.listdir(repo_scraped_dir)
+            print(f"  目录存在，包含 {len(items)} 个项目")
+            for item in items:
+                print(f"    - {item}")
+        else:
+            print(f"  目录不存在: {repo_scraped_dir}")
+        
+        # 只添加scraped_data目录和README.md
         print("\n添加文件到暂存区...")
-        result = run_git_command(["add", "."])
+        
+        # 添加README.md
+        result = run_git_command(["add", "README.md"])
         if result and result.returncode == 0:
-            print("✓ 文件添加成功")
+            print("✓ 添加README.md成功")
+        
+        # 添加scraped_data目录（使用-f强制添加，即使被.gitignore忽略）
+        result = run_git_command(["add", "-f", "scraped_data"])
+        if result and result.returncode == 0:
+            print("✓ 添加scraped_data目录成功")
+        else:
+            print("✗ 添加scraped_data目录失败")
+            if result and result.stderr:
+                print(f"  错误: {result.stderr}")
         
         # 检查状态
         result = run_git_command(["status"])
@@ -319,18 +370,18 @@ async def main():
             # 格式为：[吊图吧][tid]帖子标题_时间戳
             import glob
             
-            # 直接检查帖子目录
-            posts_dir = os.path.join(os.getcwd(), "帖子")
-            if os.path.exists(posts_dir):
-                print(f"检查帖子目录: {posts_dir}")
-                # 列出帖子目录中的所有子目录
-                for item in os.listdir(posts_dir):
-                    item_path = os.path.join(posts_dir, item)
+            # 检查scraped_data目录（帖子实际保存的位置）
+            scraped_dir = os.path.join(os.getcwd(), "scraped_data")
+            if os.path.exists(scraped_dir):
+                print(f"检查scraped_data目录: {scraped_dir}")
+                # 列出scraped_data目录中的所有子目录
+                for item in os.listdir(scraped_dir):
+                    item_path = os.path.join(scraped_dir, item)
                     if os.path.isdir(item_path) and f"[{tid}]" in item:
                         new_post_dirs.append(item_path)
                         print(f"找到帖子目录: {item_path}")
             else:
-                print("帖子目录不存在")
+                print("scraped_data目录不存在")
         except Exception as e:
             print(f"爬取第 {i} 个帖子时出错 (tid: {tid}): {e}")
         
