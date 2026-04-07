@@ -10,6 +10,38 @@ import schedule
 import subprocess
 import sys
 
+# 阻止电脑休眠的功能
+try:
+    import ctypes
+    # 定义Windows API常量
+    ES_CONTINUOUS = 0x80000000
+    ES_SYSTEM_REQUIRED = 0x00000001
+    ES_DISPLAY_REQUIRED = 0x00000002
+    
+    def prevent_sleep():
+        """阻止电脑休眠"""
+        ctypes.windll.kernel32.SetThreadExecutionState(
+            ES_CONTINUOUS | ES_SYSTEM_REQUIRED | ES_DISPLAY_REQUIRED
+        )
+        return True
+    
+    def allow_sleep():
+        """允许电脑休眠"""
+        ctypes.windll.kernel32.SetThreadExecutionState(ES_CONTINUOUS)
+        return True
+    
+    CAN_PREVENT_SLEEP = True
+except Exception:
+    # 如果在非Windows系统或无法导入ctypes，设置为False
+    CAN_PREVENT_SLEEP = False
+    def prevent_sleep():
+        """非Windows系统，无法阻止休眠"""
+        return False
+    
+    def allow_sleep():
+        """非Windows系统，无法允许休眠"""
+        return False
+
 
 # 配置参数
 CLEAN_ON_FIRST_RUN = True  # 首次运行时是否清空GitHub仓库中的scraped_data目录
@@ -103,26 +135,51 @@ def main():
     print(f"爬取脚本路径: {SCRAPE_SCRIPT_PATH}")
     print(f"清理脚本路径: {CLEAN_SCRIPT_PATH}")
     print(f"首次运行时清空scraped_data目录: {CLEAN_ON_FIRST_RUN}")
+    print(f"阻止电脑休眠: {CAN_PREVENT_SLEEP}")
     print("按 Ctrl+C 退出")
     print()
     
-    # 首次运行时清空scraped_data目录（如果配置开启）
-    if CLEAN_ON_FIRST_RUN:
-        print("[首次运行] 开始清空GitHub仓库中的scraped_data目录...")
-        run_clean_script()
-        print("[首次运行] scraped_data目录清空完成")
-        print()
+    # 阻止电脑休眠
+    if CAN_PREVENT_SLEEP:
+        if prevent_sleep():
+            print("[系统] 已阻止电脑休眠")
+        else:
+            print("[系统] 无法阻止电脑休眠")
+    else:
+        print("[系统] 不支持阻止电脑休眠（非Windows系统）")
     
-    # 立即运行一次爬取
-    run_scrape_script()
+    try:
+        # 首次运行时清空scraped_data目录（如果配置开启）
+        if CLEAN_ON_FIRST_RUN:
+            print("[首次运行] 开始清空GitHub仓库中的scraped_data目录...")
+            run_clean_script()
+            print("[首次运行] scraped_data目录清空完成")
+            print()
+        
+        # 立即运行一次爬取
+        run_scrape_script()
+        
+        # 每小时运行一次
+        schedule.every().hour.do(run_scrape_script)
+        
+        # 持续运行
+        while True:
+            # 定期调用prevent_sleep()以保持阻止状态
+            if CAN_PREVENT_SLEEP:
+                prevent_sleep()
+            schedule.run_pending()
+            time.sleep(60)  # 每分钟检查一次
     
-    # 每小时运行一次
-    schedule.every().hour.do(run_scrape_script)
-    
-    # 持续运行
-    while True:
-        schedule.run_pending()
-        time.sleep(60)  # 每分钟检查一次
+    except KeyboardInterrupt:
+        print("\n[系统] 收到退出信号，正在清理...")
+    finally:
+        # 恢复电脑休眠功能
+        if CAN_PREVENT_SLEEP:
+            if allow_sleep():
+                print("[系统] 已恢复电脑休眠功能")
+            else:
+                print("[系统] 无法恢复电脑休眠功能")
+        print("脚本已退出")
 
 
 if __name__ == "__main__":
