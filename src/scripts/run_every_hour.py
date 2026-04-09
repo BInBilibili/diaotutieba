@@ -19,9 +19,9 @@ try:
     ES_DISPLAY_REQUIRED = 0x00000002
     
     def prevent_sleep():
-        """阻止电脑休眠"""
+        """阻止电脑休眠（允许屏幕关闭）"""
         ctypes.windll.kernel32.SetThreadExecutionState(
-            ES_CONTINUOUS | ES_SYSTEM_REQUIRED | ES_DISPLAY_REQUIRED
+            ES_CONTINUOUS | ES_SYSTEM_REQUIRED
         )
         return True
     

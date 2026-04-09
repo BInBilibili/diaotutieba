@@ -1,5 +1,0 @@
-2026-03-31 18:14:59,086 - INFO - scrape_module.scrape_module.py - StepMark - < tid:10208099333 > - 开始爬取帖子
-2026-03-31 18:15:01,653 - ERROR - post_service.post_service.py - FetchPosts - < pn:3 > - 请求失败
-2026-03-31 18:15:02,830 - ERROR - post_service.post_service.py - FetchPosts - < pn:5 > - 请求失败
-2026-03-31 18:15:26,475 - INFO - scrape_module.scrape_module.py - StepMark - < tid:10208099333 > - 正在集中完善用户数据
-2026-03-31 18:15:36,218 - INFO - scrape_module.scrape_module.py - StepMark - < tid:10208099333 > - 帖子爬取完成
