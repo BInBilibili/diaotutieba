@@ -11,48 +11,48 @@
   "vote_info": {
     "title": "拥有更有趣灵魂的存在",
     "is_multi": true,
-    "total_vote": 1306,
-    "total_user": 1036,
+    "total_vote": 1844,
+    "total_user": 1449,
     "options": [
       {
         "text": "明前奶绿",
-        "vote_num": 190
+        "vote_num": 260
       },
       {
         "text": "七海娜娜米",
-        "vote_num": 181
+        "vote_num": 277
       },
       {
         "text": "灰泽满hazel",
-        "vote_num": 98
+        "vote_num": 145
       },
       {
         "text": "礼墨sumi",
-        "vote_num": 51
+        "vote_num": 68
       },
       {
         "text": "阿梓从小就很可爱",
-        "vote_num": 402
+        "vote_num": 550
       },
       {
         "text": "露早gogo",
-        "vote_num": 119
+        "vote_num": 161
       },
       {
         "text": "某个已经有趣到离开v圈的存在",
-        "vote_num": 120
+        "vote_num": 189
       },
       {
         "text": "其他",
-        "vote_num": 145
+        "vote_num": 194
       }
     ]
   },
   "share_origin": 0,
-  "view_num": 4957,
-  "reply_num": 50,
+  "view_num": 7185,
+  "reply_num": 62,
   "share_num": 0,
-  "agree": 38,
+  "agree": 90,
   "disagree": 8,
   "create_time": 1776079137,
   "status": 0
