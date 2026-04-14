@@ -1,0 +1,22 @@
+2026-04-14 11:30:32,773 - INFO - scrape_module.scrape_module.py - StepMark - < tid:9234321673 > - 开始爬取帖子
+2026-04-14 11:32:10,901 - ERROR - content_service.content_service.py - Content-VideoFrag - < floor:75, pid:151210403928, pn:1, ppid:151116214016, ppn:3 > - Failed to download https://tiebac.baidu.com/c/p/voice?voice_md5=68586c92a4a2c419400937aede458c05_881953240&play_from=pb_voice_play after 3 attempts
+2026-04-14 11:32:11,910 - ERROR - content_service.content_service.py - Content-VideoFrag - < floor:75, pid:151423345473, pn:2, ppid:151116214016, ppn:3 > - Failed to download https://tiebac.baidu.com/c/p/voice?voice_md5=64fb8af0223814d2044ada03e2426de4_1581051861&play_from=pb_voice_play after 3 attempts
+2026-04-14 11:32:15,914 - ERROR - content_service.content_service.py - Content-VideoFrag - < floor:146, pid:151210440090, pn:1, ppid:151120301157, ppn:5 > - Failed to download https://tiebac.baidu.com/c/p/voice?voice_md5=828d79be2ca6b77b84d7b449114506ef_881953240&play_from=pb_voice_play after 3 attempts
+2026-04-14 11:32:16,899 - ERROR - content_service.content_service.py - Content-VideoFrag - < floor:1258, pid:151239661009, pn:1, ppid:151232405753, ppn:41 > - Failed to download https://tiebac.baidu.com/c/p/voice?voice_md5=6444b7946634bda18bf1197ac334f559_6712949957&play_from=pb_voice_play after 3 attempts
+2026-04-14 11:32:31,908 - ERROR - content_service.content_service.py - Content-VideoFrag - < floor:385, pid:151318739600, pn:1, ppid:151139618117, ppn:13 > - Failed to download https://tiebac.baidu.com/c/p/voice?voice_md5=47abaec644a8936e997541ff7a06f5a1_6351142608&play_from=pb_voice_play after 3 attempts
+2026-04-14 11:32:35,372 - INFO - scrape_module.scrape_module.py - StepMark - < tid:9234321673 > - 正在集中完善用户数据
+2026-04-14 11:32:42,218 - ERROR - user_service.user_service.py - FetchUserInfo - < id:1541925266, portrait:tb.1.2c3bee2b.XpBFBITfpj2VeSEBG8zk8Q >
+2026-04-14 11:32:43,065 - ERROR - user_service.user_service.py - FetchUserInfo - < id:1606867614, portrait:tb.1.1b0a3ae3.Dod1BbVip5ND0_7qOi6Sag >
+2026-04-14 11:32:48,329 - ERROR - user_service.user_service.py - FetchUserInfo - < id:2508157504, portrait:tb.1.241ebe44.7jX7NlXPYiAsEJJCDAV1HA >
+2026-04-14 11:32:52,144 - ERROR - user_service.user_service.py - FetchUserInfo - < id:3027828108, portrait:tb.1.d4c68494.SyDo9pYUVCrMnGCU5vRa6g >
+2026-04-14 11:33:00,829 - ERROR - user_service.user_service.py - FetchUserInfo - < id:4321501069, portrait:tb.1.57d8c854.8fYQOGiNHnqzhRlDp6Ygng >
+2026-04-14 11:33:02,098 - ERROR - user_service.user_service.py - FetchUserInfo - < id:4496796404, portrait:tb.1.cc5d2a5b.UPqtfaS_TOMfcQHy6JS4ng >
+2026-04-14 11:33:07,413 - ERROR - user_service.user_service.py - FetchUserInfo - < id:5040262317, portrait:tb.1.582a2835.zKIVaC7uH6IZB8zRTZLRZw >
+2026-04-14 11:33:10,259 - ERROR - user_service.user_service.py - FetchUserInfo - < id:5434140700, portrait:tb.1.bdee6cbc.gacCYsz1IhIGRmUThkdUzg >
+2026-04-14 11:33:17,142 - ERROR - user_service.user_service.py - FetchUserInfo - < id:6099649184, portrait:tb.1.92359b10.fUoRO4UFZhzT8z1_g0XbQA >
+2026-04-14 11:33:19,708 - ERROR - user_service.user_service.py - FetchUserInfo - < id:6390608903, portrait:tb.1.fcacadd7.w8ZAICv16g6cALxwkGqP_A >
+2026-04-14 11:33:24,113 - ERROR - user_service.user_service.py - FetchUserInfo - < id:6600201150, portrait:tb.1.47455312.b71hMoclqw0R9gF_LvfhnA >
+2026-04-14 11:33:27,126 - ERROR - user_service.user_service.py - FetchUserInfo - < id:6724112205, portrait:tb.1.ea048dd2.H2jnocfCYA-NDmg30frTEQ >
+2026-04-14 11:33:27,379 - ERROR - user_service.user_service.py - FetchUserInfo - < id:6734647858, portrait:tb.1.a6b003d4.s9TsKCgxXOxlYhrCXM1fYA >
+2026-04-14 11:33:27,738 - ERROR - user_service.user_service.py - FetchUserInfo - < id:6737435583, portrait:tb.1.a4a33003.UHjj_PRxJhg8FBix4iMzoA >
+2026-04-14 11:33:28,461 - INFO - scrape_module.scrape_module.py - StepMark - < tid:9234321673 > - 帖子爬取完成
