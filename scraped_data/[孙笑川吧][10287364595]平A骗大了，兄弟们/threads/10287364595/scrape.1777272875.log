@@ -1,0 +1,15 @@
+2026-04-27 14:54:36,474 - INFO - scrape_module.scrape_module.py - StepMark - < tid:10287364595 > - 开始爬取帖子
+2026-04-27 14:56:29,076 - ERROR - content_service.content_service.py - Content-VideoFrag - < floor:2185, pid:153244067530, pn:1, ppid:153007791593, ppn:69 > - Failed to download https://tiebac.baidu.com/c/p/voice?voice_md5=98edd10ee4273b5e388b5fc2d4f4bed6_6501495401&play_from=pb_voice_play after 3 attempts
+2026-04-27 14:57:10,072 - ERROR - content_service.content_service.py - Content-VideoFrag - < floor:3184, pid:153174642415, pn:1, ppid:153154207495, ppn:100 > - Failed to download https://tiebac.baidu.com/c/p/voice?voice_md5=cafca5c88608c5ba4538f832971bad17_777543278&play_from=pb_voice_play after 3 attempts
+2026-04-27 14:57:31,082 - ERROR - content_service.content_service.py - Content-VideoFrag - < floor:36, pid:153192912555, pn:5, ppid:152959943333, ppn:1 > - Failed to download https://tiebac.baidu.com/c/p/voice?voice_md5=104be40bb17020bc9f8474ac8c5fc3b7_4584134332&play_from=pb_voice_play after 3 attempts
+2026-04-27 14:57:31,144 - ERROR - content_service.content_service.py - Content-VideoFrag - < floor:36, pid:153079526614, pn:4, ppid:152959943333, ppn:1 > - Failed to download https://tiebac.baidu.com/c/p/voice?voice_md5=0b68d772b77510cab250b8b3cd93fb4d_6466967589&play_from=pb_voice_play after 3 attempts
+2026-04-27 14:57:36,389 - INFO - scrape_module.scrape_module.py - StepMark - < tid:10287364595 > - 正在集中完善用户数据
+2026-04-27 15:00:13,833 - ERROR - user_service.user_service.py - FetchUserInfo - < id:4092704180, portrait:tb.1.55c87baa.2XTtFgR1g3grdXwgiRp0uQ >
+2026-04-27 15:02:54,489 - ERROR - user_service.user_service.py - FetchUserInfo - < id:6529833008, portrait:None >
+2026-04-27 15:03:04,683 - ERROR - user_service.user_service.py - FetchUserInfo - < id:6640189434, portrait:tb.1.826af5cf.Z6URR70-yQfnuLcbhsA3SA >
+2026-04-27 15:03:09,945 - ERROR - user_service.user_service.py - FetchUserInfo - < id:6673587900, portrait:tb.1.b2aee3a.SLpYzpIAXevyNNV9j8G1KA >
+2026-04-27 15:03:29,726 - ERROR - user_service.user_service.py - FetchUserInfo - < id:6848863254, portrait:tb.1.6b9f29d6.ssNTEgp4Ms1TT48lNebZNA >
+2026-04-27 15:03:47,608 - ERROR - user_service.user_service.py - FetchUserInfo - < id:6976932602, portrait:tb.1.bec3bdd1.Tbkv9Kjj8fx9Corkialt1A >
+2026-04-27 15:03:50,694 - ERROR - user_service.user_service.py - FetchUserInfo - < id:7000508954, portrait:tb.1.8d8cb89b.26RF0MXDdu_kJSKccQRyRQ >
+2026-04-27 15:03:51,821 - ERROR - user_service.user_service.py - FetchUserInfo - < id:7013633748, portrait:tb.1.32bcbc15.3VVs2OuIRKoPPgRZEdzY4w >
+2026-04-27 15:04:00,034 - INFO - scrape_module.scrape_module.py - StepMark - < tid:10287364595 > - 帖子爬取完成
