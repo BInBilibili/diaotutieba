@@ -1,5 +1,0 @@
-2026-04-29 04:47:05,988 - INFO - scrape_module.scrape_module.py - StepMark - < tid:10630256325 > - 开始爬取帖子
-2026-04-29 04:48:41,972 - ERROR - content_service.content_service.py - Content-VideoFrag - < floor:19, pid:153414903545, pn:1 > - Failed to download https://tiebac.baidu.com/c/p/voice?voice_md5=1259995fd0ce52ccced422cdb87f28cf_3389890797&play_from=pb_voice_play after 3 attempts
-2026-04-29 04:50:14,984 - ERROR - content_service.content_service.py - Content-VideoFrag - < floor:19, pid:153414918581, pn:1, ppid:153414903545, ppn:1 > - Failed to download https://tiebac.baidu.com/c/p/voice?voice_md5=c1d13d3bff7db392a1a05e67de781630_3389890797&play_from=pb_voice_play after 3 attempts
-2026-04-29 04:50:15,558 - INFO - scrape_module.scrape_module.py - StepMark - < tid:10630256325 > - 正在集中完善用户数据
-2026-04-29 04:50:15,984 - INFO - scrape_module.scrape_module.py - StepMark - < tid:10630256325 > - 帖子爬取完成
