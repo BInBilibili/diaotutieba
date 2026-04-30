@@ -1,0 +1,22 @@
+2026-04-30 14:13:19,567 - INFO - scrape_module.scrape_module.py - StepMark - < tid:10677665155 > - 开始爬取帖子
+2026-04-30 14:13:22,061 - ERROR - post_service.post_service.py - SavePost - < floor:1, pid:153468010367, pn:1 > - UNIQUE constraint failed: post.id
+2026-04-30 14:13:22,278 - ERROR - post_service.post_service.py - SavePost - < floor:2, pid:153468683218, pn:1 > - UNIQUE constraint failed: post.id
+2026-04-30 14:13:22,557 - ERROR - post_service.post_service.py - SavePost - < floor:3, pid:153468706851, pn:1 > - UNIQUE constraint failed: post.id
+2026-04-30 14:13:22,884 - ERROR - post_service.post_service.py - SavePost - < floor:5, pid:153468956887, pn:1 > - UNIQUE constraint failed: post.id
+2026-04-30 14:13:24,031 - ERROR - post_service.post_service.py - SavePost - < floor:6, pid:153469142718, pn:1 > - UNIQUE constraint failed: post.id
+2026-04-30 14:13:24,255 - ERROR - post_service.post_service.py - SavePost - < floor:7, pid:153469172785, pn:1 > - UNIQUE constraint failed: post.id
+2026-04-30 14:13:24,255 - ERROR - post_service.post_service.py - SavePost - < floor:8, pid:153469472034, pn:1 > - UNIQUE constraint failed: post.id
+2026-04-30 14:13:24,421 - ERROR - post_service.post_service.py - SavePost - < floor:10, pid:153469729628, pn:1 > - UNIQUE constraint failed: post.id
+2026-04-30 14:13:24,421 - ERROR - post_service.post_service.py - SavePost - < floor:11, pid:153469734763, pn:1 > - UNIQUE constraint failed: post.id
+2026-04-30 14:13:24,421 - ERROR - post_service.post_service.py - SavePost - < floor:12, pid:153469777389, pn:1 > - UNIQUE constraint failed: post.id
+2026-04-30 14:13:24,797 - ERROR - post_service.post_service.py - SavePost - < floor:13, pid:153469812385, pn:1 > - UNIQUE constraint failed: post.id
+2026-04-30 14:13:25,960 - ERROR - post_service.post_service.py - SavePost - < floor:14, pid:153469843921, pn:1 > - UNIQUE constraint failed: post.id
+2026-04-30 14:13:25,960 - ERROR - post_service.post_service.py - SavePost - < floor:15, pid:153469908848, pn:1 > - UNIQUE constraint failed: post.id
+2026-04-30 14:13:26,214 - ERROR - post_service.post_service.py - SavePost - < floor:16, pid:153469924942, pn:1 > - UNIQUE constraint failed: post.id
+2026-04-30 14:13:26,328 - ERROR - post_service.post_service.py - SavePost - < floor:17, pid:153469950992, pn:1 > - UNIQUE constraint failed: post.id
+2026-04-30 14:13:26,328 - ERROR - post_service.post_service.py - SavePost - < floor:18, pid:153469965359, pn:1 > - UNIQUE constraint failed: post.id
+2026-04-30 14:13:26,625 - ERROR - post_service.post_service.py - SavePost - < floor:19, pid:153470060599, pn:1 > - UNIQUE constraint failed: post.id
+2026-04-30 14:13:26,842 - ERROR - post_service.post_service.py - SavePost - < floor:20, pid:153470165640, pn:1 > - UNIQUE constraint failed: post.id
+2026-04-30 14:13:27,117 - ERROR - post_service.post_service.py - SavePost - < floor:21, pid:153470180819, pn:1 > - UNIQUE constraint failed: post.id
+2026-04-30 14:13:31,016 - INFO - scrape_module.scrape_module.py - StepMark - < tid:10677665155 > - 正在集中完善用户数据
+2026-04-30 14:13:31,914 - INFO - scrape_module.scrape_module.py - StepMark - < tid:10677665155 > - 帖子爬取完成
