@@ -1,0 +1,35 @@
+{
+  "id": 10695079450,
+  "title": "海外已经争论了一个星期的问题",
+  "forum_id": 97650,
+  "forum_name": "v",
+  "post_id": 153490280426,
+  "user_id": 3468654002,
+  "type": 0,
+  "is_share": false,
+  "is_help": false,
+  "vote_info": {
+    "title": "你会选什么按钮？",
+    "is_multi": false,
+    "total_vote": 975,
+    "total_user": 975,
+    "options": [
+      {
+        "text": "红色",
+        "vote_num": 600
+      },
+      {
+        "text": "蓝色",
+        "vote_num": 375
+      }
+    ]
+  },
+  "share_origin": 0,
+  "view_num": 8129,
+  "reply_num": 169,
+  "share_num": 0,
+  "agree": 248,
+  "disagree": 31,
+  "create_time": 1778069350,
+  "status": 0
+}
