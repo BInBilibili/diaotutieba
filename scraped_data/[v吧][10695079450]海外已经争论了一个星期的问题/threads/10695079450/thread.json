@@ -11,25 +11,25 @@
   "vote_info": {
     "title": "你会选什么按钮？",
     "is_multi": false,
-    "total_vote": 975,
-    "total_user": 975,
+    "total_vote": 2514,
+    "total_user": 2514,
     "options": [
       {
         "text": "红色",
-        "vote_num": 600
+        "vote_num": 1584
       },
       {
         "text": "蓝色",
-        "vote_num": 375
+        "vote_num": 930
       }
     ]
   },
   "share_origin": 0,
-  "view_num": 8129,
-  "reply_num": 169,
-  "share_num": 0,
-  "agree": 248,
-  "disagree": 31,
+  "view_num": 20178,
+  "reply_num": 378,
+  "share_num": 1,
+  "agree": 776,
+  "disagree": 52,
   "create_time": 1778069350,
   "status": 0
 }
