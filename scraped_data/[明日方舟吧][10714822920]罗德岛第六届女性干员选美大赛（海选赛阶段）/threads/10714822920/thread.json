@@ -11,33 +11,33 @@
   "vote_info": {
     "title": "殿堂战Round1",
     "is_multi": false,
-    "total_vote": 7175,
-    "total_user": 7175,
+    "total_vote": 7917,
+    "total_user": 7917,
     "options": [
       {
         "text": "浊心斯卡蒂",
-        "vote_num": 2451
+        "vote_num": 2707
       },
       {
         "text": "夕",
-        "vote_num": 1462
+        "vote_num": 1611
       },
       {
         "text": "塑心",
-        "vote_num": 2461
+        "vote_num": 2720
       },
       {
         "text": "缪尔赛思",
-        "vote_num": 801
+        "vote_num": 879
       }
     ]
   },
   "share_origin": 0,
-  "view_num": 46537,
-  "reply_num": 14259,
-  "share_num": 100,
-  "agree": 1474,
-  "disagree": 17,
+  "view_num": 51397,
+  "reply_num": 15525,
+  "share_num": 112,
+  "agree": 1658,
+  "disagree": 20,
   "create_time": 1778740938,
   "status": 0
 }
