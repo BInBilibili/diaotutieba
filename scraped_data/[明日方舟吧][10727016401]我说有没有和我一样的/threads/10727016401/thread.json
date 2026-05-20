@@ -1,0 +1,26 @@
+{
+  "id": 10727016401,
+  "title": "我说有没有和我一样的",
+  "forum_id": 25327918,
+  "forum_name": "明日方舟",
+  "post_id": 153532882258,
+  "user_id": 860407155,
+  "type": 0,
+  "is_share": false,
+  "is_help": false,
+  "vote_info": {
+    "title": "",
+    "is_multi": false,
+    "total_vote": 0,
+    "total_user": 0,
+    "options": []
+  },
+  "share_origin": 0,
+  "view_num": 12377,
+  "reply_num": 200,
+  "share_num": 1,
+  "agree": 293,
+  "disagree": 9,
+  "create_time": 1779158415,
+  "status": 0
+}
