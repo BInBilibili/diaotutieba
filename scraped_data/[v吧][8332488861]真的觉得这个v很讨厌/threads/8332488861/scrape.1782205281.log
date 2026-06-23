@@ -1,0 +1,17 @@
+2026-06-23 17:01:22,254 - INFO - scrape_module.scrape_module.py - StepMark - < tid:8332488861 > - 开始爬取帖子
+2026-06-23 17:01:30,639 - INFO - scrape_module.scrape_module.py - StepMark - < tid:8332488861 > - 正在集中完善用户数据
+2026-06-23 17:01:32,771 - ERROR - user_service.user_service.py - FetchUserInfo - < id:1083458594, portrait:tb.1.52fa8baa.2MhlhFBkiE7TV7IrT6qNrw >
+2026-06-23 17:01:34,198 - ERROR - user_service.user_service.py - FetchUserInfo - < id:1470251240, portrait:tb.1.2ee7223b.N1KkuTAtLOKyyjxaEelPgg >
+2026-06-23 17:01:35,573 - ERROR - user_service.user_service.py - FetchUserInfo - < id:1880977362, portrait:tb.1.3c97474a.rpeuuHE9x9aooTvvOXzGKw >
+2026-06-23 17:01:45,307 - ERROR - user_service.user_service.py - FetchUserInfo - < id:5319649969, portrait:tb.1.8420dd9d.oByjL2DRwlH5XR0q40nWQA >
+2026-06-23 17:01:45,482 - ERROR - user_service.user_service.py - FetchUserInfo - < id:5399492085, portrait:tb.1.ac69f953.VNiTo5H23HPJkwn8nJ_4nQ >
+2026-06-23 17:01:45,611 - ERROR - user_service.user_service.py - FetchUserInfo - < id:5406854338, portrait:tb.1.6a015f32.sTpwaEOFaJcajveynOqOwA >
+2026-06-23 17:01:46,165 - ERROR - user_service.user_service.py - FetchUserInfo - < id:5662149855, portrait:tb.1.5874d911.RK3U00DSaTwbnxirlAGKew >
+2026-06-23 17:01:47,535 - ERROR - user_service.user_service.py - FetchUserInfo - < id:6062115387, portrait:tb.1.8e4899f6.dbfQYYKbKu6ceGzzj3Ityw >
+2026-06-23 17:01:47,558 - ERROR - user_service.user_service.py - FetchUserInfo - < id:6067770011, portrait:tb.1.3ccb447f.qkg71coICD4sqOFXbV0ASw >
+2026-06-23 17:01:47,994 - ERROR - user_service.user_service.py - FetchUserInfo - < id:6320373232, portrait:tb.1.56e40d5c.47kXC5gXhyhsCuvwODC8Hg >
+2026-06-23 17:01:48,142 - ERROR - user_service.user_service.py - FetchUserInfo - < id:6350144984, portrait:tb.1.83bbfa7f.hnBrEwP7gX-29LwdWOAqGQ >
+2026-06-23 17:01:48,441 - ERROR - user_service.user_service.py - FetchUserInfo - < id:6397913128, portrait:tb.1.c8d5d09.-kD_7ZGqCu1xiaPA_Mntag >
+2026-06-23 17:01:48,504 - ERROR - user_service.user_service.py - FetchUserInfo - < id:6412309913, portrait:tb.1.d23e924e.wb659FawQgGCaFpRx12Ciw >
+2026-06-23 17:01:48,524 - ERROR - user_service.user_service.py - FetchUserInfo - < id:6417365898, portrait:tb.1.c32999c2.zAqYT2DnIZbDsk6oq52xbw >
+2026-06-23 17:01:48,698 - INFO - scrape_module.scrape_module.py - StepMark - < tid:8332488861 > - 帖子爬取完成
