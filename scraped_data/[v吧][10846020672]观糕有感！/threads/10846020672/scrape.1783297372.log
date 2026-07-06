@@ -1,0 +1,4 @@
+2026-07-06 08:22:52,721 - INFO - scrape_module.scrape_module.py - StepMark - < tid:10846020672 > - 开始爬取帖子
+2026-07-06 08:22:56,398 - ERROR - post_service.post_service.py - FetchComments - < floor:9, ppid:153692613170, pn:3 > - 请求失败
+2026-07-06 08:22:56,833 - INFO - scrape_module.scrape_module.py - StepMark - < tid:10846020672 > - 正在集中完善用户数据
+2026-07-06 08:22:58,467 - INFO - scrape_module.scrape_module.py - StepMark - < tid:10846020672 > - 帖子爬取完成
