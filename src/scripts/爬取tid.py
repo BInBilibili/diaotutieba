@@ -12,6 +12,11 @@ import aiotieba as tb
 DEBUG_MODE = False  # 调试模式开关，True显示详细调试信息，False正常模式
 UPLOAD_TO_GITHUB = True  # 是否上传到GitHub，True上传，False不上传
 
+# 压缩配置
+COMPRESS_ENABLED = False  # 是否启用压缩
+COMPRESS_THRESHOLD_MB = 50  # 压缩阈值（MB），超过此大小的文件会被压缩
+COMPRESS_DELETE_ORIGINAL = False  # 压缩后是否删除原文件
+
 # 要爬取的贴吧列表
 # 可以配置多个贴吧，每个贴吧可以单独设置爬取范围
 # 格式: [(贴吧名, 起始帖子序号, 结束帖子序号), ...]
@@ -109,6 +114,71 @@ def safe_print(s):
             except UnicodeEncodeError:
                 # 处理非字符串对象的编码问题
                 print(repr(s))
+
+
+def compress_large_files(directory, threshold_mb=50, delete_original=False):
+    """
+    压缩目录中的大文件
+    
+    Args:
+        directory: 要扫描的目录
+        threshold_mb: 压缩阈值（MB），超过此大小的文件会被压缩
+        delete_original: 压缩后是否删除原文件
+    
+    Returns:
+        int: 压缩的文件数量
+    """
+    import zipfile
+    
+    compressed_count = 0
+    total_saved_mb = 0
+    
+    if not COMPRESS_ENABLED:
+        safe_print("[压缩] 压缩功能已禁用")
+        return compressed_count
+    
+    safe_print(f"\n[压缩] 开始扫描大文件...")
+    safe_print(f"[压缩] 扫描目录: {directory}")
+    safe_print(f"[压缩] 压缩阈值: {threshold_mb}MB")
+    
+    for root, dirs, files in os.walk(directory):
+        for filename in files:
+            filepath = os.path.join(root, filename)
+            
+            try:
+                file_size_mb = os.path.getsize(filepath) / (1024 * 1024)
+                
+                if file_size_mb > threshold_mb:
+                    safe_print(f"[压缩] 发现大文件 ({file_size_mb:.2f}MB): {filename}")
+                    
+                    zip_path = filepath + '.zip'
+                    
+                    safe_print(f"[压缩] 正在压缩: {filename} -> {filename}.zip")
+                    
+                    with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+                        zipf.write(filepath, arcname=filename)
+                    
+                    zip_size_mb = os.path.getsize(zip_path) / (1024 * 1024)
+                    saved_mb = file_size_mb - zip_size_mb
+                    
+                    safe_print(f"[压缩] 压缩完成，原文件 {file_size_mb:.2f}MB -> 压缩后 {zip_size_mb:.2f}MB (节省 {saved_mb/file_size_mb*100:.1f}%)")
+                    
+                    if delete_original:
+                        os.remove(filepath)
+                        safe_print(f"[压缩] 已删除原文件")
+                    
+                    compressed_count += 1
+                    total_saved_mb += saved_mb
+                    
+            except Exception as e:
+                safe_print(f"[压缩] 压缩文件 {filename} 时出错: {e}")
+    
+    if compressed_count > 0:
+        safe_print(f"\n[压缩] 共处理 {compressed_count} 个大文件，节省空间 {total_saved_mb:.2f}MB")
+    else:
+        safe_print("[压缩] 未发现需要压缩的大文件")
+    
+    return compressed_count
 
 
 def upload_to_github(post_dirs):
@@ -268,6 +338,9 @@ def upload_to_github(post_dirs):
         else:
             safe_print(f"  目录不存在: {repo_scraped_dir}")
         
+        # 压缩大文件
+        compress_large_files(repo_scraped_dir, COMPRESS_THRESHOLD_MB, COMPRESS_DELETE_ORIGINAL)
+        
         # 只添加scraped_data目录和README.md
         safe_print("\n添加文件到暂存区...")
         
@@ -323,8 +396,8 @@ def upload_to_github(post_dirs):
             else:
                 safe_print("⚠ 合并可能有冲突，继续推送...")
         
-        # 推送
-        result = run_git_command(["push", "-u", "origin", current_branch], cwd=REPO_PATH)
+        # 推送（设置5分钟超时，处理大文件上传）
+        result = run_git_command(["push", "-u", "origin", current_branch], cwd=REPO_PATH, timeout=300)
         if result and result.returncode == 0:
             safe_print("✓ 推送成功！")
             safe_print("\n推送结果:")
