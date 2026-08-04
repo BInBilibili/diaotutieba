@@ -315,12 +315,17 @@ def upload_to_github(post_dirs):
             target_path = os.path.join(repo_scraped_dir, post_dir_name)
             
             safe_print(f"复制: {post_dir} -> {target_path}")
-            
+
+            # Windows 文件系统不区分大小写，需用 normcase+realpath 判断源和目标是否同一目录
+            if os.path.normcase(os.path.realpath(post_dir)) == os.path.normcase(os.path.realpath(target_path)):
+                safe_print(f"  跳过: 源与目标为同一目录 (Windows 路径大小写差异)")
+                continue
+
             # 如果目标存在，先删除
             if os.path.exists(target_path):
                 safe_print(f"  目标已存在，删除旧目录")
                 shutil.rmtree(target_path, ignore_errors=True)
-            
+
             # 复制帖子目录
             if os.path.exists(post_dir):
                 shutil.copytree(post_dir, target_path)
