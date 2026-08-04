@@ -1,1 +1,3 @@
 2026-08-04 14:45:50,388 - INFO - scrape_module.scrape_module.py - StepMark - < tid:10917401324 > - 开始爬取帖子
+2026-08-04 14:45:53,120 - INFO - scrape_module.scrape_module.py - StepMark - < tid:10917401324 > - 正在集中完善用户数据
+2026-08-04 14:45:53,683 - INFO - scrape_module.scrape_module.py - StepMark - < tid:10917401324 > - 帖子爬取完成
