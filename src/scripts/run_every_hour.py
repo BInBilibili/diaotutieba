@@ -10,6 +10,17 @@ import schedule
 import subprocess
 import sys
 
+# 强制 stdout/stderr 使用 utf-8，避免 Windows 默认 gbk 编码遇到 emoji/中文报错
+try:
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+except Exception:
+    pass
+
+# 子进程环境变量，强制子进程也用 utf-8 IO 编码
+CHILD_ENV = os.environ.copy()
+CHILD_ENV['PYTHONIOENCODING'] = 'utf-8'
+
 # 阻止电脑休眠的功能
 try:
     import ctypes
@@ -71,7 +82,8 @@ def run_clean_script():
             [sys.executable, CLEAN_SCRIPT_PATH, "--no-confirm"],
             capture_output=True,
             encoding='utf-8',
-            errors='replace'
+            errors='replace',
+            env=CHILD_ENV
         )
         
         # 输出结果
@@ -106,7 +118,8 @@ def run_scrape_script():
             [sys.executable, SCRAPE_SCRIPT_PATH],
             capture_output=True,
             encoding='utf-8',
-            errors='replace'
+            errors='replace',
+            env=CHILD_ENV
         )
         
         # 输出结果

@@ -6,6 +6,13 @@ import subprocess
 import time
 from datetime import datetime
 
+# 强制 stdout/stderr 使用 utf-8，避免 Windows 默认 gbk 编码遇到 emoji 报错
+try:
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+except Exception:
+    pass
+
 import aiotieba as tb
 
 # 配置参数
