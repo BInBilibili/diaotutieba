@@ -1,4 +1,0 @@
-2026-08-12 16:41:42,369 - INFO - scrape_module.scrape_module.py - StepMark - < tid:10936435586 > - 开始爬取帖子
-2026-08-12 16:41:47,291 - INFO - scrape_module.scrape_module.py - StepMark - < tid:10936435586 > - 正在集中完善用户数据
-2026-08-12 16:41:58,161 - ERROR - user_service.user_service.py - FetchUserInfo - < id:6544086912, portrait:tb.1.321301dc.i9Q5SRCVwFlwkhy9r5DOWg >
-2026-08-12 16:41:58,620 - INFO - scrape_module.scrape_module.py - StepMark - < tid:10936435586 > - 帖子爬取完成
