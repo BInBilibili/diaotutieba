@@ -32,6 +32,7 @@ COMPRESS_DELETE_ORIGINAL = False  # 压缩后是否删除原文件
 FORUMS = [
     ("steam", 5, 6),
     ("b站", 6, 6),
+    ("V", 6, 6),
 ]
 
 # 添加src目录到Python路径
