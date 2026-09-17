@@ -1,0 +1,26 @@
+{
+  "id": 10550562807,
+  "title": "这里是水楼贴",
+  "forum_id": 707597,
+  "forum_name": "steam",
+  "post_id": 153285781648,
+  "user_id": 6695916064,
+  "type": 71,
+  "is_share": false,
+  "is_help": true,
+  "vote_info": {
+    "title": "",
+    "is_multi": false,
+    "total_vote": 0,
+    "total_user": 0,
+    "options": []
+  },
+  "share_origin": 0,
+  "view_num": 26090,
+  "reply_num": 13261,
+  "share_num": 9,
+  "agree": 1828,
+  "disagree": 2,
+  "create_time": 1773232472,
+  "status": 0
+}
