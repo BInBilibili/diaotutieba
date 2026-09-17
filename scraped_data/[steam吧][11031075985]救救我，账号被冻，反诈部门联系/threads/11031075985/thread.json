@@ -1,13 +1,13 @@
 {
-  "id": 11029892710,
-  "title": "吧里有没有中年玩家？一块交流下：",
+  "id": 11031075985,
+  "title": "救救我，账号被冻，反诈部门联系",
   "forum_id": 707597,
   "forum_name": "steam",
-  "post_id": 153941745229,
-  "user_id": 648990615,
-  "type": 0,
+  "post_id": 153943083987,
+  "user_id": 4291257626,
+  "type": 71,
   "is_share": false,
-  "is_help": false,
+  "is_help": true,
   "vote_info": {
     "title": "",
     "is_multi": false,
@@ -16,11 +16,11 @@
     "options": []
   },
   "share_origin": 0,
-  "view_num": 2390,
-  "reply_num": 88,
+  "view_num": 57,
+  "reply_num": 6,
   "share_num": 0,
-  "agree": 88,
+  "agree": 3,
   "disagree": 0,
-  "create_time": 1789609168,
+  "create_time": 1789637616,
   "status": 0
 }
