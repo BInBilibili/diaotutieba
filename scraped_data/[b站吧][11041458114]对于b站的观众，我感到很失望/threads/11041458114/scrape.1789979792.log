@@ -1,0 +1,4 @@
+2026-09-21 16:36:32,402 - INFO - scrape_module.scrape_module.py - StepMark - < tid:11041458114 > - 开始爬取帖子
+2026-09-21 16:36:34,030 - ERROR - post_service.post_service.py - SavePost - < floor:1, pid:153955558173, pn:1 > - UNIQUE constraint failed: post.id
+2026-09-21 16:36:34,041 - INFO - scrape_module.scrape_module.py - StepMark - < tid:11041458114 > - 正在集中完善用户数据
+2026-09-21 16:36:34,403 - INFO - scrape_module.scrape_module.py - StepMark - < tid:11041458114 > - 帖子爬取完成
